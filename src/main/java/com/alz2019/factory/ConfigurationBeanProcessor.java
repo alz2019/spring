@@ -3,6 +3,7 @@ package com.alz2019.factory;
 import com.alz2019.registry.BeanDefinitionRegistry;
 import com.alz2019.registry.ConfigurationBeanDefinition;
 import com.alz2019.resolver.DependencyResolver;
+import lombok.RequiredArgsConstructor;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -11,16 +12,11 @@ import java.util.Map;
 
 import static com.alz2019.utils.BeanUtils.createInstance;
 
+@RequiredArgsConstructor
 public class ConfigurationBeanProcessor implements BeanProcessor {
     private final BeanDefinitionRegistry beanDefinitionRegistry;
     private final Map<String, Object> beanMap;
     private final DependencyResolver dependencyResolver;
-
-    public ConfigurationBeanProcessor(BeanDefinitionRegistry beanDefinitionRegistry, Map<String, Object> beanMap, DependencyResolver dependencyResolver) {
-        this.beanDefinitionRegistry = beanDefinitionRegistry;
-        this.beanMap = beanMap;
-        this.dependencyResolver = dependencyResolver;
-    }
 
     @Override
     public void process() {
